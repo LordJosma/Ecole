@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduFlow - Apprenez sans limites</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#ededf9",
+                    "surface-container-highest": "#e1e2ed",
+                    "secondary": "#505f76",
+                    "surface-variant": "#e1e2ed",
+                    "surface-bright": "#faf8ff",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#0053db",
+                    "on-secondary-fixed": "#0b1c30",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f0f0fb",
+                    "on-secondary-container": "#54647a",
+                    "on-primary-fixed": "#00174b",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#b4c5ff",
+                    "secondary-container": "#d0e1fb",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "on-tertiary-container": "#ffede6",
+                    "tertiary": "#943700",
+                    "secondary-fixed": "#d3e4fe",
+                    "surface-dim": "#d9d9e5",
+                    "error-container": "#ffdad6",
+                    "outline": "#737686",
+                    "inverse-surface": "#2e3039",
+                    "surface": "#faf8ff",
+                    "tertiary-container": "#bc4800",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-error-container": "#93000a",
+                    "primary": "#004ac6",
+                    "on-surface-variant": "#434655",
+                    "surface-container-low": "#f3f3fe",
+                    "on-background": "#191b23",
+                    "outline-variant": "#c3c6d7",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "surface-container-high": "#e7e7f3",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-surface": "#191b23",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "primary-container": "#2563eb",
+                    "primary-fixed": "#dbe1ff",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "background": "#faf8ff",
+                    "secondary-fixed-dim": "#b7c8e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "0.5rem",
+                    "lg": "2rem",
+                    "container-max": "1280px",
+                    "md": "1.5rem",
+                    "xl": "4rem",
+                    "gutter": "24px",
+                    "sm": "1rem",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-sm": ["Inter"],
+                    "headline-sm": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["30px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .course-card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+        }
+        .course-card-hover:hover {
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Fixed Header) -->
+<header class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50">
+<nav class="flex justify-between items-center px-lg md:px-xl py-sm max-w-container-max mx-auto w-full">
+<!-- Brand Logo -->
+<div class="flex items-center gap-md">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">EduFlow</span>
+<!-- Desktop Navigation Links -->
+<div class="hidden md:flex gap-md ml-lg">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1 transition-all duration-200" href="#">Browse</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors" href="#">My Learning</a>
+<a class="font-body-md text-body-md text-secondary hover:text-primary transition-colors" href="#">Mentors</a>
+</div>
+</div>
+<!-- Search and Profile -->
+<div class="flex items-center gap-md">
+<div class="hidden md:flex relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 w-64 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all" placeholder="Rechercher un cours..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors">notifications</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant cursor-pointer hover:border-primary transition-all">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a young adult student for a profile avatar, set against a clean, neutral gray background. The lighting is soft and flattering, highlighting a friendly expression. The overall aesthetic is polished, academic, and minimalist, fitting a premium edtech platform profile section." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmRRiaJ8dfKfCbeOeTFhbp13Y60Q_USbavt5NbNIrTFHAEZFnIRQcQKYtWyd9t9epaw6ybB728q5hI3Pl-hovGE7hXQdccGjiAsV5iZv8JaSj9__k5Dc3_Jlo3Vq1_u0-dooibQpQ2EkgxSo3j5CpIRmn5rIgNYMeQd5DsAQ8PO_wYKtF9Hnfx43BcAV1aOcG50euI-S2orEut-5i3ZMgTr26LAzGUQ6IguTTFh3nWoPp-tbzmcf-mSfbKZqn-rjP8f8sAaz5XeTsF"/>
+</div>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-xl pb-24 md:pt-32 md:pb-40 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-lg md:px-xl relative z-10">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-md">
+                        Apprenez sans limites
+                    </h1>
+<p class="font-body-lg text-body-lg text-secondary mb-lg leading-relaxed">
+                        Accédez à des milliers de cours en ligne dispensés par des experts. Développez de nouvelles compétences et atteignez vos objectifs professionnels avec une flexibilité totale.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-4 rounded-xl hover:bg-opacity-90 transition-all transform hover:scale-105 shadow-lg">
+                            Explorer les cours
+                        </button>
+<button class="border border-outline-variant text-primary font-label-md text-label-md px-lg py-4 rounded-xl hover:bg-surface-container-low transition-all">
+                            Découvrir nos mentors
+                        </button>
+</div>
+</div>
+</div>
+<!-- Abstract background shape -->
+<div class="absolute right-0 top-0 w-1/2 h-full hidden lg:block pointer-events-none">
+<div class="w-full h-full bg-primary-fixed opacity-10 rounded-l-[100px] transform translate-x-1/4 -rotate-6"></div>
+</div>
+</section>
+<!-- Search Bar Section (Below Hero) -->
+<section class="relative z-20 -mt-10 px-lg">
+<div class="max-w-4xl mx-auto">
+<div class="bg-surface-container-lowest p-base rounded-2xl shadow-xl border border-outline-variant">
+<div class="flex items-center gap-sm px-md py-xs">
+<span class="material-symbols-outlined text-primary scale-110">search</span>
+<input class="w-full border-none focus:ring-0 font-body-md text-body-md bg-transparent py-4" id="main-search" placeholder="Que voulez-vous apprendre aujourd'hui ?" type="text"/>
+<button class="bg-primary-container text-on-primary-container px-lg py-2 rounded-xl font-label-md text-label-md hover:bg-opacity-90 transition-all">
+                            Rechercher
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Course Grid Section -->
+<section class="max-w-container-max mx-auto px-lg md:px-xl py-xl md:py-24">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-widest">Contenu recommandé</span>
+<h2 class="font-headline-md text-headline-md text-on-background mt-xs">Les cours les plus populaires</h2>
+</div>
+<a class="hidden md:flex items-center gap-xs text-primary font-label-md text-label-md hover:underline" href="#">
+                    Tout voir <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-lg">
+<!-- Course Card 1: In Progress -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden course-card-shadow course-card-hover transition-all duration-300 flex flex-col group">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A high-quality 16:9 cinematic shot of a modern coding workspace. A high-resolution laptop screen displays vibrant lines of React code. Soft bokeh lighting in the background shows a minimalist home office with a succulent plant and a warm desk lamp. The overall color palette uses deep navy and electric blue accents, matching a premium EdTech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjI1eHh1I2slrrr3DLWVaZh67Lxrsq5wVU3wsr5-gidkTUHsFQ7d9wJKxELflK1JDYvJynT5Vy1FMR24sOfUHtfPJh5-MDbjwKaU6s4Kdz6j-yuLvwiJ-WCO5kFSVK_cGCsNEbc3qbQxXTPMzCPwlGVKYSFn-M8icrfZW4o8z7ZsQDf_4N5yBF2inzt82P_BplnL78GUagj2flGTKoawg-XnjHX-BugpD8tQiKGaJqCpOuo-3oXw9wiznXap7TSrxeH7kgGReky89C"/>
+<div class="absolute top-md left-md">
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase">Code</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-sm text-lg font-bold mb-xs text-on-background line-clamp-2">Mastering React &amp; Tailwind CSS for Modern Web</h3>
+<p class="text-secondary font-label-md text-label-md mb-md">Par Dr. Sarah Jenkins</p>
+<!-- Progress Bar for this card -->
+<div class="mb-md">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-sm text-label-sm text-secondary">Progression</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">40%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 40%"></div>
+</div>
+</div>
+<div class="mt-auto pt-md border-t border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-base fill-[1]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.9</span>
+<span class="text-secondary font-label-sm text-label-sm">(2.1k)</span>
+</div>
+<span class="font-headline-sm text-lg font-bold text-on-background">49.99 €</span>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden course-card-shadow course-card-hover transition-all duration-300 flex flex-col group">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A professional close-up of a designer working on a tablet with a stylus. The screen shows a sleek, modern mobile app UI being polished with geometric shapes and soft shadows. The environment is a bright, sun-drenched creative studio with minimal decor. The aesthetic is clean and high-end with a focus on craftsmanship and digital precision, using soft grays and electric blue highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAINcWZ3OgaC5XLBC-AgVTFs0XqaIFmvi4Fu8N0DdwhNCCXBjH6bq5yMNoIjCNzPnFmRijbU5aNCIdqC6OZtyDxqy8xKYGUDw5bgi0obOnqpeuYbDYTK21buYs0ioT20F4Nc3TU6R99CSgB2Hlf2cbSDWfJZ9V2I2FEYsfeMa0nqcyPnBfQ-AWgiX0SlyODNpahNrYjYWCCDfkqe5-RCD6zYJ2zLmUIGeonKNKxPVhroFWh3GdSxhx4N87xH6e7hggtNA1PUNfjVPMV"/>
+<div class="absolute top-md left-md">
+<span class="bg-secondary text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase">Design</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-sm text-lg font-bold mb-xs text-on-background line-clamp-2">UI/UX Design Systems: From Concept to Pro</h3>
+<p class="text-secondary font-label-md text-label-md mb-lg">Par Marcus Thorne</p>
+<div class="mt-auto pt-md border-t border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-base fill-[1]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.8</span>
+<span class="text-secondary font-label-sm text-label-sm">(845)</span>
+</div>
+<span class="font-headline-sm text-lg font-bold text-on-background">79.99 €</span>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden course-card-shadow course-card-hover transition-all duration-300 flex flex-col group">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An artistic representation of data visualization and machine learning. Abstract nodes and glowing connections form a complex network over a dark, sophisticated blue background. Subtle gradients of cyan and indigo create a sense of depth and advanced technology. The composition is clean, balanced, and intellectual, evoking the feeling of high-level academic research and professional data science." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLQRJhB8gIumR3uqZS6eis8QaQlwI8_ovi6MHQO4qV5OZcmIjdrAO-mJQw5uOaSluXkxuKsaG8vcRQOt9XLHk7ONVRz0sUD4VzRSi6hXWiNjzl0HQYcmTWEozXB6g4rqIh103zpyZBuHbMYgUyNOb8BcQKoZYup4oH5VGUDYnO63mzcDTBmbo4Q7sQcRrGvukjZc9is_uPh2K8drooKDyP3UD-JodUTLggb0M-Q0_fMsszk0w2CcfNA1IbWt889mdiJ47I5iGEn4lp"/>
+<div class="absolute top-md left-md">
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase">Code</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-sm text-lg font-bold mb-xs text-on-background line-clamp-2">Data Science &amp; AI: Complete Bootcamp 2024</h3>
+<p class="text-secondary font-label-md text-label-md mb-lg">Par Dr. Emily Watson</p>
+<div class="mt-auto pt-md border-t border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-base fill-[1]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">5.0</span>
+<span class="text-secondary font-label-sm text-label-sm">(1.5k)</span>
+</div>
+<span class="font-headline-sm text-lg font-bold text-on-background">129.99 €</span>
+</div>
+</div>
+</div>
+<!-- Course Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden course-card-shadow course-card-hover transition-all duration-300 flex flex-col group">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A stylish 3D render of architectural design elements. A minimalist building model with glass and wood textures sits on a clean drafting table. The scene is lit with natural morning light streaming through a window, creating long, soft shadows. The overall mood is architectural, precise, and professional, using a neutral palette with warm wood accents and cool gray tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxWN6OJPh6RjY8r5XGdTtEIntiAIj5jVvrtq3lj0NS5-L8lPXhtlFvEaUckdovxwXpjDlxYXozIsIUqwr3voNGVlCtO7uL9AmaWOMKk5iqiXJ73F6yhc5bwNaqWX6SHUlJBL2YAwgzAZZb7f2uZ3Oig_jjIz4YNmEymyR26jKBDxwPqx1HjqrSSoChrtsKGy02eJmzt22kKNqeKCZgXcuEj2hpv8VZBftsQ3VvwmY9em6so9Rk3pu5ztKBtzM_sHBxuf5jGznAVOcq"/>
+<div class="absolute top-md left-md">
+<span class="bg-secondary text-on-secondary font-label-sm text-label-sm px-3 py-1 rounded-full uppercase">Design</span>
+</div>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-sm text-lg font-bold mb-xs text-on-background line-clamp-2">Architecture Digitale : Conception 3D Avancée</h3>
+<p class="text-secondary font-label-md text-label-md mb-lg">Par Jean-Pierre L.</p>
+<div class="mt-auto pt-md border-t border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-base fill-[1]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold">4.7</span>
+<span class="text-secondary font-label-sm text-label-sm">(412)</span>
+</div>
+<span class="font-headline-sm text-lg font-bold text-on-background">Free</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA Banner -->
+<section class="max-w-container-max mx-auto px-lg md:px-xl pb-24">
+<div class="bg-primary rounded-3xl p-lg md:p-xl flex flex-col md:flex-row items-center justify-between gap-lg relative overflow-hidden shadow-2xl">
+<!-- Abstract Deco -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+<div class="relative z-10 max-w-xl text-center md:text-left">
+<h2 class="font-headline-md text-headline-md text-on-primary mb-sm">Prêt à transformer votre carrière ?</h2>
+<p class="font-body-lg text-body-lg text-on-primary opacity-90">Rejoignez plus de 50 000 étudiants et commencez votre voyage vers l'excellence dès aujourd'hui.</p>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row gap-md w-full md:w-auto">
+<button class="bg-surface-container-lowest text-primary px-lg py-4 rounded-xl font-label-md text-label-md font-bold hover:shadow-lg transition-all text-nowrap">Créer un compte gratuit</button>
+<button class="border border-on-primary text-on-primary px-lg py-4 rounded-xl font-label-md text-label-md hover:bg-white/10 transition-all text-nowrap">Voir les plans premium</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-high border-t border-outline-variant">
+<div class="max-w-container-max mx-auto py-xl px-lg md:px-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-xl mb-xl">
+<div class="md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary mb-md block">EduFlow</span>
+<p class="text-on-surface-variant font-label-md text-label-md leading-relaxed">La plateforme d'apprentissage nouvelle génération pour les professionnels ambitieux.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold mb-md uppercase tracking-wider">Plateforme</h4>
+<ul class="space-y-sm text-on-surface-variant font-label-md text-label-md">
+<li><a class="hover:text-primary transition-colors" href="#">Tous les cours</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Mentors</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Entreprises</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Certifications</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold mb-md uppercase tracking-wider">Support</h4>
+<ul class="space-y-sm text-on-surface-variant font-label-md text-label-md">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Community</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-bold mb-md uppercase tracking-wider">Légal</h4>
+<ul class="space-y-sm text-on-surface-variant font-label-md text-label-md">
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-xl border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 EduFlow Inc. All rights reserved.</p>
+<div class="flex gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">rss_feed</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 w-full flex justify-around items-center px-sm pb-sm pt-xs bg-surface-container-lowest border-t border-outline-variant z-50 shadow-lg">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm-mobile text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm-mobile text-[10px]">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">local_library</span>
+<span class="font-label-sm-mobile text-[10px]">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-secondary-container transition-transform active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm-mobile text-[10px]">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions
+        const searchInput = document.getElementById('main-search');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.parentElement.classList.add('ring-2', 'ring-primary');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.parentElement.classList.remove('ring-2', 'ring-primary');
+        });
+
+        // Sticky Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-sm');
+            } else {
+                header.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>
